@@ -3,7 +3,7 @@ import qrCodeImage from 'figma:asset/9fd622c78fe57d0e0a191e2b81394b2599637ffc.pn
 
 export default function App() {
   return (
-    <div className="size-full flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden">
       {/* Fondo animado */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 animate-gradient"></div>
       <div className="absolute inset-0 opacity-50">
