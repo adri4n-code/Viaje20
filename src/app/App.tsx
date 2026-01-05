@@ -44,13 +44,13 @@ export default function App() {
       </div>
 
       {/* Contenido */}
-      <div className="relative z-10 max-w-2xl mx-auto p-8">
-        <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-2xl">
-          <h1 className="text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+      <div className="relative z-10 max-w-2xl mx-auto p-4 md:p-8 w-full">
+        <div className="bg-white/95 backdrop-blur-sm p-6 md:p-12 rounded-3xl shadow-2xl">
+          <h1 className="text-center mb-6 md:mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Este viaje incluye
           </h1>
           
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div className="flex gap-4 items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,24 +101,24 @@ export default function App() {
           </div>
 
           {/* Contador Regresivo */}
-          <div className="mt-8 pt-8 border-t border-slate-200">
-            <h2 className="text-center text-slate-700 mb-6">Cuenta atrás para tu viaje</h2>
-            <div className="grid grid-cols-4 gap-4">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-4 text-center">
-                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.days}</div>
-                <div className="text-xs md:text-sm text-white/80">Días</div>
+          <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-slate-200">
+            <h2 className="text-center text-slate-700 mb-4 md:mb-6 text-sm md:text-base">Cuenta atrás para tu viaje</h2>
+            <div className="grid grid-cols-4 gap-2 md:gap-4">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl md:rounded-2xl p-2 md:p-4 text-center">
+                <div className="text-2xl md:text-4xl text-white mb-1">{timeLeft.days}</div>
+                <div className="text-[10px] md:text-sm text-white/80">Días</div>
               </div>
-              <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-4 text-center">
-                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.hours}</div>
-                <div className="text-xs md:text-sm text-white/80">Horas</div>
+              <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl md:rounded-2xl p-2 md:p-4 text-center">
+                <div className="text-2xl md:text-4xl text-white mb-1">{timeLeft.hours}</div>
+                <div className="text-[10px] md:text-sm text-white/80">Horas</div>
               </div>
-              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-4 text-center">
-                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.minutes}</div>
-                <div className="text-xs md:text-sm text-white/80">Minutos</div>
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl md:rounded-2xl p-2 md:p-4 text-center">
+                <div className="text-2xl md:text-4xl text-white mb-1">{timeLeft.minutes}</div>
+                <div className="text-[10px] md:text-sm text-white/80">Minutos</div>
               </div>
-              <div className="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-4 text-center">
-                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.seconds}</div>
-                <div className="text-xs md:text-sm text-white/80">Segundos</div>
+              <div className="bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl md:rounded-2xl p-2 md:p-4 text-center">
+                <div className="text-2xl md:text-4xl text-white mb-1">{timeLeft.seconds}</div>
+                <div className="text-[10px] md:text-sm text-white/80">Segundos</div>
               </div>
             </div>
           </div>
