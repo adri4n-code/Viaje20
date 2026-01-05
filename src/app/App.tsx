@@ -1,7 +1,38 @@
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import qrCodeImage from 'figma:asset/9fd622c78fe57d0e0a191e2b81394b2599637ffc.png';
+import { useState, useEffect } from 'react';
 
 export default function App() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const targetDate = new Date('2026-03-14T00:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden">
       {/* Fondo animado */}
@@ -65,6 +96,29 @@ export default function App() {
               <div>
                 <h2 className="text-slate-800 mb-1">Spa & Bienestar</h2>
                 <p className="text-slate-600">Acceso al spa</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Contador Regresivo */}
+          <div className="mt-8 pt-8 border-t border-slate-200">
+            <h2 className="text-center text-slate-700 mb-6">Cuenta atrás para tu viaje</h2>
+            <div className="grid grid-cols-4 gap-4">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-4 text-center">
+                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.days}</div>
+                <div className="text-xs md:text-sm text-white/80">Días</div>
+              </div>
+              <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-4 text-center">
+                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.hours}</div>
+                <div className="text-xs md:text-sm text-white/80">Horas</div>
+              </div>
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-4 text-center">
+                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.minutes}</div>
+                <div className="text-xs md:text-sm text-white/80">Minutos</div>
+              </div>
+              <div className="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-4 text-center">
+                <div className="text-3xl md:text-4xl text-white mb-1">{timeLeft.seconds}</div>
+                <div className="text-xs md:text-sm text-white/80">Segundos</div>
               </div>
             </div>
           </div>
